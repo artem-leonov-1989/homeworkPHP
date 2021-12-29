@@ -32,5 +32,25 @@
     <input name="img_product" type="file"><br>
     <input type="submit" value="Отправить"><br>
 </form>
+<p>Тестовое задание</p>
+<form method="post" action="app.php?id_form=4">
+    <label for="form_4_1">Вопрос с текстовым ответом</label><br>
+    <input type="text" id="form_4_1" name="answer1"><br>
+    <p>Выбор одного из варианта</p>
+    <input type="radio" name="answer2" id="form_4_2" value="Вариант 1">
+    <label for="form_4_2">Вариант 1</label><br>
+    <input type="radio" name="answer2" id="form_4_3" value="Вариант 2">
+    <label for="form_4_3">Вариант 2</label><br>
+    <p>Выбор нескольких вариантов</p>
+    <input type="checkbox" name="answer3[]" value="Вариант 1">Вариант 1<br>
+    <input type="checkbox" name="answer3[]" value="Вариант 2">Вариант 2<br>
+    <input type="checkbox" name="answer3[]" value="Вариант 3">Вариант 3<br>
+    <p>Вопрос с картинками</p>
+    <input type="radio" name="answer4" id="form_4_4" value="Вариант 1">
+    <label for="form_4_4"><img src="img/iss4/8cb.jpg" width="20%" height="20%"></label>
+    <input type="radio" name="answer4" id="form_4_5" value="Вариант 2">
+    <label for="form_4_5"><img src="img/iss4/8cb.jpg" width="20%" height="20%"></label><br>
+    <input type="submit" value="Завершить тест">
+</form>
 </body>
 </html>
