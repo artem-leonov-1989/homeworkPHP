@@ -12,23 +12,21 @@ if (!empty($_POST)) {
     } else {
         setcookie('name_user', $_POST['name_user'], time() + 3600);
         setcookie('login_user', $_POST['login_user'], time() + 3600);
-        $_SESSION['errors'] = 'Список ошибок:';
+        $_SESSION['errors'] = '<br>Список ошибок:';
     }
     if (strlen($_POST['name_user']) < 3) {
-        $_SESSION['errors'] = '<br>Имя пользователя должно быть не менее 3х символов.';
+        $_SESSION['errors'] = $_SESSION['errors'].'<br>Имя пользователя должно быть не менее 3х символов.';
     }
     if (strlen($_POST['login_user']) < 5) {
-        $_SESSION['errors'] = '<br>Логин должен быть не менее 5ти символов.';
+        $_SESSION['errors'] = $_SESSION['errors'].'<br>Логин должен быть не менее 5ти символов.';
     }
     if (strlen($_POST['pass_user']) < 5) {
-        $_SESSION['errors'] = '<br>Пароль должен быть не менее 5ти символов.';
-    }
-    if (strlen($_POST['pass_user']) < 5) {
-        $_SESSION['errors'] = '<br>Пароль должен быть не менее 5ти символов.';
+        $_SESSION['errors'] = $_SESSION['errors'].'<br>Пароль должен быть не менее 5ти символов.';
     }
     if ($_POST['pass_user'] !== $_POST['pass_user_rep']) {
-        $_SESSION['errors'] = 'Пароли не совпадают.<br>';
+        $_SESSION['errors'] = $_SESSION['errors'].'<br>Пароли не совпадают.';
     }
+    header( 'Location: index.php?reg');
 } else {
     header( 'Location: index.php');
 }

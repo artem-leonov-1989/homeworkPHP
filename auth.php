@@ -7,6 +7,5 @@ if (isset($_SESSION['id_user'])) {
         echo 'ошибка!';
     }
 } else {
-    $_SESSION['errors'] = 'Нет данных о пользователе. Зарегистрируйтесь!';
     header( 'Location: reg_form.php');
 }

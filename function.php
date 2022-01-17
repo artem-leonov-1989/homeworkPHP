@@ -10,7 +10,7 @@ function get_errors() {
     if (isset($_SESSION['errors'])) {
         return $_SESSION['errors'];
     }
-    return 'sgsdg';
+    return '';
 }
 
 function clear_cookies() {
