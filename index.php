@@ -19,8 +19,9 @@ if (isset($_SESSION['id_user'])) {
 }
 
 if (isset($_GET['reg'])) {
-    include_once ('reg_form.html');
+    include_once('reg_form.php');
 }
+/*var_dump($_SESSION);*/
 ?>
 </body>
 </html>
