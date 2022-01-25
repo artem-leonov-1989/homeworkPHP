@@ -20,13 +20,22 @@
 <?php
 session_start();
 use App\Registration;
-require ('App/Registration.php');
+use App\Authorization;
+include ('App/ValidatorInterface.php');
+include ('App/ValidatorAbstract.php');
 if (empty($_GET)) {
+    include ('forms/auth.html');
     echo '<a href="forms/reg.html">Пройти регистрацию</a>';
 } else {
     if (isset($_GET['reg'])) {
+        require ('App/Registration.php');
         $reg_user = new Registration();
-        $reg_user ->validator();
+        $reg_user->validator();
+    }
+    if (isset($_GET['auth'])) {
+        require ('App/Authorization.php');
+        $user = new Authorization();
+        $user->validator();
     }
 }
 if (isset($_SESSION['errors']) && isset($_GET['reg'])) {
@@ -36,9 +45,14 @@ if (isset($_SESSION['errors']) && isset($_GET['reg'])) {
     }
     echo '<a href="index.php">Вернуться на главную</a>';
 }
-var_dump($_GET);
-var_dump($_POST);
-var_dump($_FILES);
+if (isset($_SESSION['errors']) && isset($_GET['auth'])) {
+    include ('forms/auth.html');
+    echo '<a href="forms/reg.html">Пройти регистрацию</a>';
+    echo '<p>Были обнаружены следующие ошибки при авторизации:</p>';
+    foreach ($_SESSION['errors'] as $error) {
+        echo '<p>'.$error.'</p>';
+    }
+}
 /*session_destroy();*/
 ?>
 </body>
