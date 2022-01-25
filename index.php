@@ -12,6 +12,9 @@
         margin-bottom: 5px;
         width: 250px;
     }
+    p {
+        color: red;
+    }
 </style>
 <body>
 <?php
@@ -26,14 +29,16 @@ if (empty($_GET)) {
         $reg_user ->validator();
     }
 }
-if (isset($_SESSION['errors'])) {
-    var_dump($_SESSION['errors']);
-    /*$_SESSION['errors'] = [];*/
+if (isset($_SESSION['errors']) && isset($_GET['reg'])) {
+    echo '<p>Были обнаружены следующие ошибки при регистрации:</p>';
+    foreach ($_SESSION['errors'] as $error) {
+        echo '<p>'.$error.'</p>';
+    }
+    echo '<a href="index.php">Вернуться на главную</a>';
 }
 var_dump($_GET);
 var_dump($_POST);
 var_dump($_FILES);
-var_dump($_SESSION['errors']);
 /*session_destroy();*/
 ?>
 </body>
