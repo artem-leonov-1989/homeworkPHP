@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация на сайте</title>
+</head>
+<style>
+    input {
+        margin-bottom: 5px;
+        width: 250px;
+    }
+</style>
+<body>
+<form method="post" enctype="multipart/form-data" action="../index.php?reg">
+    <input name="login" type="text" placeholder="Укажите желаемый логин"><br>
+    <input name="pass" type="password" placeholder="Укажите желаемый пароль"><br>
+    <input name="pass_rep" type="password" placeholder="Повторите пароль"><br>
+    <input name="email" type="email" placeholder="Укажите вашу почту"><br>
+    <input type="file" name="avatar"><br>
+    <input type="submit" value="Регистрация"><br>
+</form>
+</body>
+</html>
